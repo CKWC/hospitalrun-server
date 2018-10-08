@@ -11,18 +11,11 @@ const serverRoutes = require('hospitalrun-server-routes');
 const setupAppDir  = require('hospitalrun');
 const apiConfig    = require('./api/config.js');
 
-dbListeners(config);
 const app = express();
 if (config.useSSL && config.useCertBot === true) {
   app.use('/.well-known', express.static(__dirname + '/public/.well-known', { dotfiles: 'allow' }));
   http.createServer(app).listen(80);
 }
-serverRoutes(app, config);
-setupAppDir(app);
-if (config.logRequests) {
-  app.use(morgan(config.logFormat));
-}
-app.use('/patientimages', express.static(config.imagesdir));
 
 let server;
 if (config.useSSL) {
@@ -41,19 +34,27 @@ if (config.useSSL) {
   server = http.createServer(app);
 }
 
+server.listen(config.serverPort, function listening() {
+  console.log('HospitalRun server listening on %j', server.address());
+});
+
 console.log('Loading raml proxy - this may take a while...');
 osprey.loadFile(apiConfig.spec, apiConfig.ospreyConfig)
 .then(middleware => {
+
+  dbListeners(config);
+  serverRoutes(app, config);
+  setupAppDir(app);
+  if (config.logRequests) {
+    app.use(morgan(config.logFormat));
+  }
+  app.use('/patientimages', express.static(config.imagesdir));
+
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(bodyParser.json());
 
   app.use(apiConfig.mountpoint, middleware, osprey.Router(), require('./api/router/routes'));
   app.use(apiConfig.ramlOnNotFound);
   app.use(apiConfig.ramlOnError);
-
-
-  server.listen(config.serverPort, function listening() {
-    console.log('HospitalRun server listening on %j', server.address());
-  });
 })
 .catch(e => apiConfig.log(e));
