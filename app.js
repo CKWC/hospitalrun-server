@@ -56,5 +56,7 @@ osprey.loadFile(apiConfig.spec, apiConfig.ospreyConfig)
   app.use(apiConfig.mountpoint, middleware, osprey.Router(), require('./api/router/routes'));
   app.use(apiConfig.ramlOnNotFound);
   app.use(apiConfig.ramlOnError);
+
+  console.log('Server started...');
 })
 .catch(e => apiConfig.log(e));

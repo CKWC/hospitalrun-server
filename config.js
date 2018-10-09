@@ -34,9 +34,13 @@ config.getProtocol = function (isSSL) {
   return 'http' + (isSSL ? 's' : '') + '://';
 };
 
-config.serverURL = config.getProtocol(config.useSSL) + config.server;
-if (config.serverPort) {
-  config.serverURL += ':' + config.serverPort;
+if (process.env.SERVER_URL) {
+  config.serverURL = process.env.SERVER_URL;
+} else {
+  config.serverURL = config.getProtocol(config.useSSL) + config.server;
+  if (config.serverPort) {
+    config.serverURL += ':' + config.serverPort;
+  }
 }
 
 config.couchDbURL = config.getProtocol(config.couchDbUseSsl) + config.couchDbServer + ':' + config.couchDbPort;
