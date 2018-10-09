@@ -25,7 +25,7 @@
     "express": "^4.13.4",
     "hospitalrun": "1.0.0-beta",
     "hospitalrun-dblisteners": "github:CKWC/hospitalrun-dblisteners",
-    "hospitalrun-server-routes": "github:CKWC/hospitalrun-server-routes",
+    "hospitalrun-server-routes": "github:CKWC/hospitalrun-server-routes#418ba81",
     "moment": "^2.15.2",
     "morgan": "^1.6.1",
     "nano": "^6.2.0",
