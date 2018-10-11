@@ -48,7 +48,6 @@ osprey.loadFile(apiConfig.spec, apiConfig.ospreyConfig)
   if (config.logRequests) {
     app.use(morgan(config.logFormat));
   }
-  app.use('/patientimages', express.static(config.imagesdir));
 
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(bodyParser.json());

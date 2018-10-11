@@ -7,6 +7,8 @@ var config = {
   couchAdminPassword: process.env.COUCHDB_ADMIN_PASSWORD || 'test',
   googleClientId: process.env.GOOGLE_CLIENT_ID || '',
   googleClientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
+  awsAccessKeyId: process.env.AWS_ACCESS_KEY || '',
+  awsSecretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || '',
   serverPort: process.env.PORT || '3000',
   server: process.env.SERVER_NAME || 'localhost',
   sslCert: process.env.SSL_CERT_PATH || '',
