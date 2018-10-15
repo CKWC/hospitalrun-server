@@ -21,7 +21,11 @@ var config = {
   logFormat: process.env.LOG_FORMAT || 'default', // See http://www.senchalabs.org/connect/logger.html for log formats
   useGoogleAuth: process.env.USE_GOOGLE_AUTH || false,
   useCertBot: process.env.USE_CERT_BOT || false,
-  isMultitenancy: process.env.IS_MULTITENANCY || false
+  isMultitenancy: process.env.IS_MULTITENANCY || false,
+  email: {
+    from: process.env.EMAIL_FROM,
+    transport: JSON.parse(process.env.EMAIL_TRANSPORT || '{}')
+  }
 };
 
 config.couchCredentials = function () {
