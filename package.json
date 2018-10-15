@@ -23,7 +23,7 @@
     "csv-parse": "2.0.2",
     "csv-stringify": "^2.0.0",
     "express": "^4.13.4",
-    "hospitalrun": "github:CKWC/hospitalrun-frontend#c69af9d",
+    "hospitalrun": "github:CKWC/hospitalrun-frontend#982f5f1",
     "hospitalrun-dblisteners": "github:CKWC/hospitalrun-dblisteners#acc8cc5",
     "hospitalrun-server-routes": "github:CKWC/hospitalrun-server-routes#1d61cf3",
     "moment": "^2.15.2",
