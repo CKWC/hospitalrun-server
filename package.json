@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:HospitalRun/hospitalrun-server"
+    "url": "git@github.com:CKWC/hospitalrun-server"
   },
   "author": "John Kleinschmidt",
   "contributors": [
@@ -25,7 +25,7 @@
     "express": "^4.13.4",
     "hospitalrun": "github:CKWC/hospitalrun-frontend#0f49425",
     "hospitalrun-dblisteners": "github:CKWC/hospitalrun-dblisteners#acc8cc5",
-    "hospitalrun-server-routes": "github:CKWC/hospitalrun-server-routes#1d61cf3",
+    "hospitalrun-server-routes": "github:CKWC/hospitalrun-server-routes#7bd5df2",
     "moment": "^2.15.2",
     "morgan": "^1.6.1",
     "nano": "^6.2.0",
