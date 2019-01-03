@@ -18,6 +18,9 @@
     "Joel Glovier"
   ],
   "license": "GPL-3.0",
+  "engines": {
+    "node": "~8.12.0"
+  },
   "dependencies": {
     "colors": "^1.1.2",
     "csv-parse": "2.0.2",
